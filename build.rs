@@ -54,13 +54,12 @@ fn prepare_tensorflow_source() -> PathBuf {
     let tf_src_dir = out_dir.join("tensorflow/tensorflow");
     let submodules = submodules();
 
-    let copy_dir = fs_extra::dir::CopyOptions {
-        overwrite: true,
-        skip_exist: false,
-        buffer_size: 65536,
-        copy_inside: false,
-        depth: 0,
-    };
+    let mut copy_dir = fs_extra::dir::CopyOptions::new();
+    copy_dir.overwrite =  true;
+    copy_dir.skip_exist = false;
+    copy_dir.buffer_size =  65536;
+    copy_dir.copy_inside = false;
+    copy_dir.depth = 0;
 
     if !tf_src_dir.exists() || cfg!(feature = "build") {
         // Copy directory
