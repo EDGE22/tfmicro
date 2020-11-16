@@ -5,7 +5,7 @@ on:
   # but only for the master branch
   push:
     branches:
-      - o/issues/1/tfupdatee-master
+      - o/issues/1/tfupdate-master
 
 jobs:
   build-dev:
