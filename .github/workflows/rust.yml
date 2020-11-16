@@ -1,6 +1,11 @@
 name: Rust
 
-on: [push, pull_request]
+on:
+  # Trigger the workflow on push or pull request,
+  # but only for the master branch
+  push:
+    branches:
+      - o/issues/1/tfupdatee-master
 
 jobs:
   build-dev:
