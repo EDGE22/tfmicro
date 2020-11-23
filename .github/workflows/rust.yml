@@ -2,11 +2,12 @@ name: Rust
 
 on: [push, pull_request]
 
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
+
 jobs:
   build-dev:
     runs-on: ubuntu-latest
-    env:
-      ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true'
     steps:
       - uses: actions/checkout@v2
       - uses: textbook/git-checkout-submodule-action@2.1.1
